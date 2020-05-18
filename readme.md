@@ -1,4 +1,6 @@
-## C💚SS.css (ChartSS.css) - accessible html/css charts with markdown support
+# C💚SS.css (ChartSS.css) - accessible html/css charts with markdown support
+
+If you're viewing on github, see the html version at <https://rbitr.github.io/ChartS.css/>
 
 ## Features
 
@@ -19,6 +21,7 @@ $ pandoc -t chartss.lua infile.md > outfile.html
 ## Gallery 
 
 ### Bar Charts:
+(see html version)
 
 - Dogs: 39 
 - Cats: 7
@@ -28,6 +31,7 @@ $ pandoc -t chartss.lua infile.md > outfile.html
 - Walruses: 30
 
 ### Scatter Plots:
+(see html version)
 
 - (15,12)
 - (0.25,6.78)
@@ -47,6 +51,7 @@ $ pandoc -t chartss.lua infile.md > outfile.html
 
 
 ### Line Plot:
+(see html version)
 
 * 1.5 : 3.3
 * 3 : -1.2
@@ -57,6 +62,7 @@ $ pandoc -t chartss.lua infile.md > outfile.html
 * 10.5 : 8
 
 ### Stacked Bar (a pie chart for grownups):
+(see html version)
 
 * Dogs : 20+
 * Cats : 10+
@@ -65,6 +71,7 @@ $ pandoc -t chartss.lua infile.md > outfile.html
 * Bears : 20+
 
 ### Waterfall Chart
+(see html version)
 
 * Animals: 95=
 * Dogs : 20+
