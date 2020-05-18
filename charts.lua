@@ -86,6 +86,8 @@ function Doc(body, metadata, variables)
   add('<html>')
   add('<head>')
   add('<link rel="stylesheet" href="ChartSS.css" />')
+  -- a default good style
+  add('<link rel="stylesheet" href="https://unpkg.com/mvp.css" />')
   add('</head>')
   add('<body style="margin:3%">')
   add(body)

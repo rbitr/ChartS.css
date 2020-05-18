@@ -2,17 +2,18 @@
 <html>
 <head>
 <link rel="stylesheet" href="ChartSS.css" />
-<link rel="stylesheet" href="https://unpkg.com/mvp.css">
+<link rel="stylesheet" href="https://unpkg.com/mvp.css" />
 </head>
 <body style="margin:3%">
-<h2 id="css.css---accessible-htmlcss-charts-with-markdown-support">C💚SS.css - accessible html/css charts with markdown support</h2>
+<h2 id="css.css-chartss.css---accessible-htmlcss-charts-with-markdown-support">C💚SS.css (ChartSS.css) - accessible html/css charts with markdown support</h2>
 
 <h2 id="features">Features</h2>
 
 <ul>
-<li>Charts directly from markdown</li>
+<li>Charts directly from markdown lists via <code>pandoc</code></li>
 <li>Retains accessible, semantic HTML</li>
 <li>No javascript, uses only a small .css file</li>
+<li>Parse with <code>pandoc</code> or use as templates</li>
 </ul>
 
 <h2 id="usage">Usage</h2>
@@ -25,24 +26,24 @@
 
 <h2 id="gallery">Gallery</h2>
 
-<p><strong>Bar Charts:</strong></p>
+<h3 id="bar-charts">Bar Charts:</h3>
 
 </span></li><ul class="BarList">
-<li class="BarLi"><span class="ChartLabel">Dogs</span><span class="BarSep"> : </span><span class="BarValue" style="--bar-length:90%">39</span></li>
-<li class="BarLi"><span class="ChartLabel">Cats</span><span class="BarSep"> : </span><span class="BarValue" style="--bar-length:87%">38</span></li>
-<li class="BarLi"><span class="ChartLabel">Lions</span><span class="BarSep"> : </span><span class="BarValue" style="--bar-length:83%">36</span></li>
-<li class="BarLi"><span class="ChartLabel">Tigers</span><span class="BarSep"> : </span><span class="BarValue" style="--bar-length:80%">35</span></li>
-<li class="BarLi"><span class="ChartLabel">Bears</span><span class="BarSep"> : </span><span class="BarValue" style="--bar-length:76%">33</span></li>
-<li class="BarLi"><span class="ChartLabel">Walruses</span><span class="BarSep"> : </span><span class="BarValue" style="--bar-length:69%">30</span></li>
+<li class="BarLi"><span class="ChartLabel">Dogs</span><span class="BarSep"> : </span><span class="BarValue" style="--bar-length:63%">39</span></li>
+<li class="BarLi"><span class="ChartLabel">Cats</span><span class="BarSep"> : </span><span class="BarValue" style="--bar-length:11%">7</span></li>
+<li class="BarLi"><span class="ChartLabel">Lions</span><span class="BarSep"> : </span><span class="BarValue" style="--bar-length:58%">36</span></li>
+<li class="BarLi"><span class="ChartLabel">Tigers</span><span class="BarSep"> : </span><span class="BarValue" style="--bar-length:90%">55</span></li>
+<li class="BarLi"><span class="ChartLabel">Bears</span><span class="BarSep"> : </span><span class="BarValue" style="--bar-length:54%">33</span></li>
+<li class="BarLi"><span class="ChartLabel">Walruses</span><span class="BarSep"> : </span><span class="BarValue" style="--bar-length:49%">30</span></li>
 <li class="BarLi"> <span class="XTicks">
 <span class="TickLabel" style="--tick-label:'0.0'"></span>
-<span class="TickLabel" style="--tick-label:'10.8'"></span>
-<span class="TickLabel" style="--tick-label:'21.7'"></span>
-<span class="TickLabel" style="--tick-label:'32.5'"></span>
-<span class="TickLabel" style="--tick-label:'43.3'"></span>
+<span class="TickLabel" style="--tick-label:'15.3'"></span>
+<span class="TickLabel" style="--tick-label:'30.6'"></span>
+<span class="TickLabel" style="--tick-label:'45.8'"></span>
+<span class="TickLabel" style="--tick-label:'61.1'"></span>
 </ul>
 
-<p><strong>Scatter Plots:</strong></p>
+<h3 id="scatter-plots">Scatter Plots:</h3>
 
 <div class="PlotOuterContainer">
 <div class="YTicks">
@@ -67,7 +68,7 @@
 <span class="TickLabel" style="--tick-label:'15.9'"></span>
 </span></div></div></div>
 
-<p><strong>A Regular List:</strong></p>
+<h3 id="a-regular-list">A Regular List:</h3>
 
 <ul>
 <li>Cats</li>
@@ -78,7 +79,7 @@
 <li>Lions</li>
 </ul>
 
-<p><strong>Line Plot:</strong></p>
+<h3 id="line-plot">Line Plot:</h3>
 
 <div class="PlotOuterContainer">
 <div class="YTicks">
@@ -106,7 +107,7 @@
 <span class="TickLabel" style="--tick-label:'10.9'"></span>
 </span></div></div></div>
 
-<p><strong>Stacked Bar (a pie chart for grownups):</strong></p>
+<h3 id="stacked-bar-a-pie-chart-for-grownups">Stacked Bar (a pie chart for grownups):</h3>
 
 </span></li><ul class="BarList">
 <div class="PlotOuterContainer">
@@ -127,7 +128,7 @@
 </div></div>
 </ul>
 
-<p><strong>Waterfall Chart</strong></p>
+<h3 id="waterfall-chart">Waterfall Chart</h3>
 
 <div class="PlotOuterContainer">
 <div class="YTicks">

@@ -1,10 +1,11 @@
-## C💚SS.css - accessible html/css charts with markdown support
+## C💚SS.css (ChartSS.css) - accessible html/css charts with markdown support
 
 ## Features
 
-- Charts directly from markdown
+- Charts directly from markdown lists via `pandoc`
 - Retains accessible, semantic HTML
 - No javascript, uses only a small .css file
+- Parse with `pandoc` or use as templates
 
 ## Usage
 
@@ -17,16 +18,16 @@ $ pandoc -t chartss.lua infile.md > outfile.html
 
 ## Gallery 
 
-__Bar Charts:__
+### Bar Charts:
 
 - Dogs: 39 
-- Cats: 38
+- Cats: 7
 - Lions: 36
-- Tigers: 35
+- Tigers: 55
 - Bears: 33
 - Walruses: 30
 
-__Scatter Plots:__
+### Scatter Plots:
 
 - (15,12)
 - (0.25,6.78)
@@ -34,7 +35,7 @@ __Scatter Plots:__
 - (-4,-6)
 
 
-__A Regular List:__
+### A Regular List:
 
 * Cats
 * Dogs
@@ -45,7 +46,7 @@ __A Regular List:__
 
 
 
-__Line Plot:__
+### Line Plot:
 
 * 1.5 : 3.3
 * 3 : -1.2
@@ -55,7 +56,7 @@ __Line Plot:__
 * 9 : 4
 * 10.5 : 8
 
-__Stacked Bar (a pie chart for grownups):__
+### Stacked Bar (a pie chart for grownups):
 
 * Dogs : 20+
 * Cats : 10+
@@ -63,7 +64,7 @@ __Stacked Bar (a pie chart for grownups):__
 * Tigers : 15+
 * Bears : 20+
 
-__Waterfall Chart__
+### Waterfall Chart
 
 * Animals: 95=
 * Dogs : 20+
