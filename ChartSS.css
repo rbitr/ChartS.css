@@ -1,0 +1,321 @@
+:root {
+
+/* default pallette colors */
+--chart-pallette-1:#FB08FF;
+--chart-pallette-2:#74FF21;
+--chart-pallette-3:#21FFFE;
+--chart-pallette-4:#FF7321;
+--chart-pallette-5:#3600FF;
+--chart-pallette-6:#FFE819;
+
+--chart-pallette-light-1:#FB08FF22;
+--chart-pallette-light-2:#74FF2122;
+--chart-pallette-light-3:#21FFFE22;
+--chart-pallette-light-4:#FF732122;
+--chart-pallette-light-5:#3600FF22;
+--chart-pallette-light-6:#FFE81922;
+
+--default-hover-color:#777777;
+
+--default-light-background:#3600FF11;
+
+--scatter-text-color:black;
+
+--default-border-style: 0.5px solid black;
+
+
+--label-font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif;
+--label-font-weight:200;
+
+/* sizes */
+--default-chart-width:70%;
+--default-chart-height:300px;
+
+
+}
+
+.ChartLabel {
+font-family:var(--label-font-family);
+font-weight:var(--label-font-weight);
+}
+
+.BarList {
+display:flex;
+flex-direction:column;
+justify-content:space-between;
+align-items:flex-start;
+width:var(--default-chart-width);
+ list-style-position: outside; 
+list-style:none;
+padding-bottom:12pt;
+
+padding-left:0px;
+}
+
+.BarValue {
+
+background-color:var(--bar-color,var(--chart-pallette-light-1));
+display:flex;
+align-items:flex-start;
+width:var(--bar-length);
+border-radius:4px;
+border:var(--default-border-style);
+padding-left:5px;
+font-family:var(--label-font-family);
+font-weight:var(--label-font-weight);
+}
+
+
+
+.BarLi {
+ width:100%;
+ list-style-position: outside; 
+list-style:none;
+}
+
+.XTicks {
+display:flex;
+flex-direction:row;
+align-items:flex-start;
+justify-content:space-between;
+height:12px;
+border-top: 1px solid black;
+width:100%;
+margin-top:6px;
+}
+
+.TickLabel:before {
+content:var(--tick-label);
+font-family:var(--label-font-family);
+font-weight:var(--label-font-weight);
+}
+
+.BarValue:hover { background-color: var(--default-hover-color); }
+
+
+.PlotOuterContainer {
+position:relative;
+background-color:transparent;
+display:flex;
+flex-direction:row;
+align-items:flex-start;
+width:var(--default-chart-width);
+height: var(--default-chart-height);
+
+}
+
+.ScatterMainContainer {
+position:relative;
+background-color:var(--default-light-background);
+display:flex;
+flex-direction:row;
+align-items:flex-end;
+
+border-left:0.5px solid black;
+border-bottom:0.5px solid black;
+height: var(--default-chart-height);
+width:100%
+}
+
+.ScatterPoint {
+    width: var(--pixel-x-percent);
+    height: var(--pixel-y-percent);
+    background-color: transparent;
+    position: absolute;
+    display:flex;
+flex-direction:column;
+align-items:flex-end;
+
+}
+
+.ScatterPoint:after {
+    --scatter-circle-color:#77DFFF;
+    content: "";
+    position: absolute;
+    height: 100%;
+    width: 10px;
+    top: -5px;
+    background-image: radial-gradient(circle at center, var(--scatter-marker-color,var(--chart-pallette-3)) 5px, transparent 5px);
+    background-size: 10px 10px;
+    background-position: top center;
+    background-repeat: no-repeat;
+}
+
+
+.ScatterPoint:before {
+    left: 0px;
+}
+.ScatterPoint:after {
+    right: -5px;
+}
+
+.ScatterValue {
+ list-style-position: outside; 
+list-style:none;
+text-align: right;
+width:100%;
+color:var(--scatter-text-color);
+font-family:var(--label-font-family);
+font-weight:var(--label-font-weight);
+}
+
+.YTicks {
+display:flex;
+flex-direction:column;
+align-items:flex-start;
+justify-content:space-between;
+height:100%;
+border-right: 1px solid black;
+margin-top:6px;
+font-family:var(--label-font-family);
+font-weight:var(--label-font-weight);
+}
+
+.FlexColumn {
+display:flex;
+flex-direction:column;
+height:100%;
+width:100%;
+
+}
+
+.FlexRow {
+display:flex;
+flex-direction:row;
+height:100%;
+width:100%;
+
+}
+
+.FlexColumn > .BarLi > .XTicks {
+margin-top:0px;
+}
+
+
+.InvisibleListItem {
+width:0;
+height:0;
+font-size:0;
+}
+
+.LineOuterContainer {
+background-color:var(--default-light-background);
+display:flex;
+flex-direction:row;
+align-items:flex-start;
+justify-content:space-evenly;
+
+height: var(--default-chart-height);
+
+list-style-position: outside; 
+list-style:none;
+}
+
+
+
+
+.SegmentContainer {
+
+background-color:transparent;
+display:flex;
+flex-direction:column;
+justify-content:flex-end;
+flex-grow:1;
+height: 100%;
+
+}
+
+.LineSegment {
+ list-style-position: outside; 
+list-style:none;
+font-size:0;
+border-top-color:var(--chart-pallette-3);
+border-top-width:2px;
+height:calc(var(--line-y-to) - var(--line-y-from));
+
+
+--positive-slope:to top left;
+--negative-slope:to top right;
+
+background: 
+ linear-gradient(var(--line-slope),
+             transparent 0%,
+             transparent calc(50% - 2px),
+             var(--chart-pallette-3) 50%,
+             transparent calc(50% + 2px),
+             transparent 100%);
+}
+
+.LineBlock {
+height:var(--line-y-from);
+width:100%;
+background-color:transparent;
+}
+
+:root {
+--default-stack-width:150px;
+--default-stack-padding:50px;
+--bar-block-text-color:black;
+}
+
+.BarBlock {
+height:var(--stack-height);
+width:var(--default-stack-width);
+border:.25px solid black;
+text-align:center;
+ list-style-position: outside; 
+list-style:none;
+color:var(--bar-block-text-color);
+font-family:var(--label-font-family);
+font-weight:var(--label-font-weight);
+padding-top:1px;
+}
+
+
+
+.BarBlock:nth-child(6n+1), .WaterfallContainer:nth-child(6n+1) > .BarBlock {
+background-color:var(--chart-pallette-light-1)
+}
+
+.BarBlock:nth-child(6n+2), .WaterfallContainer:nth-child(6n+2) > .BarBlock {
+background-color:var(--chart-pallette-light-2)
+}
+
+.BarBlock:nth-child(6n+3), .WaterfallContainer:nth-child(6n+3) > .BarBlock {
+background-color:var(--chart-pallette-light-3)
+}
+
+.BarBlock:nth-child(6n+4), .WaterfallContainer:nth-child(6n+4) > .BarBlock {
+background-color:var(--chart-pallette-light-4)
+}
+
+.BarBlock:nth-child(6n+5), .WaterfallContainer:nth-child(6n+5) > .BarBlock {
+background-color:var(--chart-pallette-light-5)
+}
+
+.BarBlock:nth-child(6n+6),  .WaterfallContainer:nth-child(6n+6) > .BarBlock{
+background-color:var(--chart-pallette-light-6)
+}
+
+
+.BarBlock:hover { background-color: var(--default-hover-color); }
+
+.StackFlexColumn {
+width:calc(var(--default-stack-width)+2*var(--default-stack-padding));
+padding-left:var(--default-stack-padding);
+padding-right:var(--default-stack-padding);
+border-bottom:1px solid black;
+justify-content:flex-end;
+}
+
+.WaterfallContainer {
+
+background-color:transparent;
+display:flex;
+flex-direction:column;
+justify-content:flex-end;
+flex-grow:1;
+height: 100%;
+margin-left:10px;
+margin-right:10px;
+}

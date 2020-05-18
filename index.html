@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html>
+<head>
+<link rel="stylesheet" href="ChartSS.css" />
+<link rel="stylesheet" href="https://unpkg.com/mvp.css">
+</head>
+<body style="margin:3%">
+<h2 id="css.css---accessible-htmlcss-charts-with-markdown-support">C💚SS.css - accessible html/css charts with markdown support</h2>
+
+<h2 id="features">Features</h2>
+
+<ul>
+<li>Charts directly from markdown</li>
+<li>Retains accessible, semantic HTML</li>
+<li>No javascript, uses only a small .css file</li>
+</ul>
+
+<h2 id="usage">Usage</h2>
+
+<pre><code>$ pandoc -t chartss.lua infile.md &gt; outfile.html</code></pre>
+
+<h2 id="details-coming-soon">Details Coming Soon</h2>
+
+<p>…</p>
+
+<h2 id="gallery">Gallery</h2>
+
+<p><strong>Bar Charts:</strong></p>
+
+</span></li><ul class="BarList">
+<li class="BarLi"><span class="ChartLabel">Dogs</span><span class="BarSep"> : </span><span class="BarValue" style="--bar-length:90%">39</span></li>
+<li class="BarLi"><span class="ChartLabel">Cats</span><span class="BarSep"> : </span><span class="BarValue" style="--bar-length:87%">38</span></li>
+<li class="BarLi"><span class="ChartLabel">Lions</span><span class="BarSep"> : </span><span class="BarValue" style="--bar-length:83%">36</span></li>
+<li class="BarLi"><span class="ChartLabel">Tigers</span><span class="BarSep"> : </span><span class="BarValue" style="--bar-length:80%">35</span></li>
+<li class="BarLi"><span class="ChartLabel">Bears</span><span class="BarSep"> : </span><span class="BarValue" style="--bar-length:76%">33</span></li>
+<li class="BarLi"><span class="ChartLabel">Walruses</span><span class="BarSep"> : </span><span class="BarValue" style="--bar-length:69%">30</span></li>
+<li class="BarLi"> <span class="XTicks">
+<span class="TickLabel" style="--tick-label:'0.0'"></span>
+<span class="TickLabel" style="--tick-label:'10.8'"></span>
+<span class="TickLabel" style="--tick-label:'21.7'"></span>
+<span class="TickLabel" style="--tick-label:'32.5'"></span>
+<span class="TickLabel" style="--tick-label:'43.3'"></span>
+</ul>
+
+<p><strong>Scatter Plots:</strong></p>
+
+<div class="PlotOuterContainer">
+<div class="YTicks">
+<span class="TickLabel" style="--tick-label:'12.9'"></span>
+<span class="TickLabel" style="--tick-label:'9.0'"></span>
+<span class="TickLabel" style="--tick-label:'5.0'"></span>
+<span class="TickLabel" style="--tick-label:'1.0'"></span>
+<span class="TickLabel" style="--tick-label:'-3.0'"></span>
+<span class="TickLabel" style="--tick-label:'-6.9'"></span>
+</div>
+<div class="FlexColumn"> <div class="ScatterMainContainer">
+<div class="ScatterPoint" style="--pixel-x-percent:95%;--pixel-y-percent:95%"><li class="ScatterValue">(15,12)</li></div>
+<div class="ScatterPoint" style="--pixel-x-percent:25%;--pixel-y-percent:69%"><li class="ScatterValue">(0.25,6.78)</li></div>
+<div class="ScatterPoint" style="--pixel-x-percent:20%;--pixel-y-percent:80%"><li class="ScatterValue">(-0.7,9)</li></div>
+<div class="ScatterPoint" style="--pixel-x-percent:5%;--pixel-y-percent:5%"><li class="ScatterValue">(-4,-6)</li></div>
+</div><div class="BarLi"> <span class="XTicks">
+<span class="TickLabel" style="--tick-label:'-5.0'"></span>
+<span class="TickLabel" style="--tick-label:'-0.8'"></span>
+<span class="TickLabel" style="--tick-label:'3.4'"></span>
+<span class="TickLabel" style="--tick-label:'7.6'"></span>
+<span class="TickLabel" style="--tick-label:'11.8'"></span>
+<span class="TickLabel" style="--tick-label:'15.9'"></span>
+</span></div></div></div>
+
+<p><strong>A Regular List:</strong></p>
+
+<ul>
+<li>Cats</li>
+<li>Dogs</li>
+<li>Mice</li>
+<li>Men</li>
+<li>Lambs</li>
+<li>Lions</li>
+</ul>
+
+<p><strong>Line Plot:</strong></p>
+
+<div class="PlotOuterContainer">
+<div class="YTicks">
+<span class="TickLabel" style="--tick-label:'8.4'"></span>
+<span class="TickLabel" style="--tick-label:'6.4'"></span>
+<span class="TickLabel" style="--tick-label:'4.4'"></span>
+<span class="TickLabel" style="--tick-label:'2.4'"></span>
+<span class="TickLabel" style="--tick-label:'0.4'"></span>
+<span class="TickLabel" style="--tick-label:'-1.7'"></span>
+</div>
+<div class="FlexColumn"> <div class="LineOuterContainer">
+<div class="InvisibleListItem">1.5 : 3.3</div>
+<div class="SegmentContainer"  style="--line-y-from:4.5%;--line-y-to:49.0%;--line-slope:to top right"> <li class="LineSegment">3 : -1.2</li> <div class="LineBlock"></div> </div>
+<div class="SegmentContainer"  style="--line-y-from:4.5%;--line-y-to:16.3%;--line-slope:to top left"> <li class="LineSegment">4.5 : 0</li> <div class="LineBlock"></div> </div>
+<div class="SegmentContainer"  style="--line-y-from:16.3%;--line-y-to:18.8%;--line-slope:to top left"> <li class="LineSegment">6 : 0.25</li> <div class="LineBlock"></div> </div>
+<div class="SegmentContainer"  style="--line-y-from:18.8%;--line-y-to:31.2%;--line-slope:to top left"> <li class="LineSegment">7.5 : 1.5</li> <div class="LineBlock"></div> </div>
+<div class="SegmentContainer"  style="--line-y-from:31.2%;--line-y-to:55.9%;--line-slope:to top left"> <li class="LineSegment">9 : 4</li> <div class="LineBlock"></div> </div>
+<div class="SegmentContainer"  style="--line-y-from:55.9%;--line-y-to:95.5%;--line-slope:to top left"> <li class="LineSegment">10.5 : 8</li> <div class="LineBlock"></div> </div>
+</div><div class="BarLi"> <span class="XTicks">
+<span class="TickLabel" style="--tick-label:'1.1'"></span>
+<span class="TickLabel" style="--tick-label:'3.0'"></span>
+<span class="TickLabel" style="--tick-label:'5.0'"></span>
+<span class="TickLabel" style="--tick-label:'7.0'"></span>
+<span class="TickLabel" style="--tick-label:'9.0'"></span>
+<span class="TickLabel" style="--tick-label:'10.9'"></span>
+</span></div></div></div>
+
+<p><strong>Stacked Bar (a pie chart for grownups):</strong></p>
+
+</span></li><ul class="BarList">
+<div class="PlotOuterContainer">
+<div class="YTicks">
+<span class="TickLabel" style="--tick-label:'99.8'"></span>
+<span class="TickLabel" style="--tick-label:'79.8'"></span>
+<span class="TickLabel" style="--tick-label:'59.9'"></span>
+<span class="TickLabel" style="--tick-label:'39.9'"></span>
+<span class="TickLabel" style="--tick-label:'20.0'"></span>
+<span class="TickLabel" style="--tick-label:'0.0'"></span>
+</div>
+<div class="FlexColumn StackFlexColumn">
+<li class="BarBlock" style="--stack-height:20.1%">Dogs: 20</li>
+<li class="BarBlock" style="--stack-height:10.0%">Cats: 10</li>
+<li class="BarBlock" style="--stack-height:30.1%">Lions: 30</li>
+<li class="BarBlock" style="--stack-height:15.0%">Tigers: 15</li>
+<li class="BarBlock" style="--stack-height:20.1%">Bears: 20</li>
+</div></div>
+</ul>
+
+<p><strong>Waterfall Chart</strong></p>
+
+<div class="PlotOuterContainer">
+<div class="YTicks">
+<span class="TickLabel" style="--tick-label:'99.8'"></span>
+<span class="TickLabel" style="--tick-label:'79.8'"></span>
+<span class="TickLabel" style="--tick-label:'59.9'"></span>
+<span class="TickLabel" style="--tick-label:'39.9'"></span>
+<span class="TickLabel" style="--tick-label:'20.0'"></span>
+<span class="TickLabel" style="--tick-label:'0.0'"></span>
+</div>
+<div class="FlexColumn"> <div class="LineOuterContainer">
+<div class="WaterfallContainer"> <li class="BarBlock" style="--stack-height:95.2%;width:100%">Animals: 95</li> <div class="LineBlock" style="--line-y-from:0.0%"></div> </div>
+<div class="WaterfallContainer"> <li class="BarBlock" style="--stack-height:20.1%;width:100%">Dogs : 20</li> <div class="LineBlock" style="--line-y-from:75.2%"></div> </div>
+<div class="WaterfallContainer"> <li class="BarBlock" style="--stack-height:10.0%;width:100%">Cats : 10</li> <div class="LineBlock" style="--line-y-from:65.2%"></div> </div>
+<div class="WaterfallContainer"> <li class="BarBlock" style="--stack-height:30.1%;width:100%">Lions : 30</li> <div class="LineBlock" style="--line-y-from:35.1%"></div> </div>
+<div class="WaterfallContainer"> <li class="BarBlock" style="--stack-height:15.0%;width:100%">Tigers : 15</li> <div class="LineBlock" style="--line-y-from:20.1%"></div> </div>
+<div class="WaterfallContainer"> <li class="BarBlock" style="--stack-height:20.1%;width:100%">Bears : 20</li> <div class="LineBlock" style="--line-y-from:-0.0%"></div> </div>
+</div><div class="BarLi"> <span class="XTicks">
+</span></div></div></div>
+</body>
+</html>
+
