@@ -20,7 +20,7 @@
 --default-light-background:#3600FF11;
 
 --scatter-text-color:black;
-
+--bar-block-text-color:black;
 --default-border-style: 0.5px solid black;
 
 
@@ -30,39 +30,40 @@
 /* sizes */
 --default-chart-width:70%;
 --default-chart-height:300px;
+--default-stack-width:150px;
+--default-stack-padding:50px;
+--bar-block-text-color:black;
 
 
 }
 
 .ChartLabel {
-font-family:var(--label-font-family);
-font-weight:var(--label-font-weight);
+ font-family:var(--label-font-family);
+ font-weight:var(--label-font-weight);
 }
 
 .BarList {
-display:flex;
-flex-direction:column;
-justify-content:space-between;
-align-items:flex-start;
-width:var(--default-chart-width);
+ display:flex;
+ flex-direction:column;
+ justify-content:space-between;
+ align-items:flex-start;
+ width:var(--default-chart-width);
  list-style-position: outside; 
-list-style:none;
-padding-bottom:12pt;
-
-padding-left:0px;
+ list-style:none;
+ padding-bottom:12pt;
+ padding-left:0px;
 }
 
 .BarValue {
-
-background-color:var(--bar-color,var(--chart-pallette-light-1));
-display:flex;
-align-items:flex-start;
-width:var(--bar-length);
-border-radius:4px;
-border:var(--default-border-style);
-padding-left:5px;
-font-family:var(--label-font-family);
-font-weight:var(--label-font-weight);
+ background-color:var(--bar-color,var(--chart-pallette-light-1));
+ display:flex;
+ align-items:flex-start;
+ width:var(--bar-length);
+ border-radius:4px;
+ border:var(--default-border-style);
+ padding-left:5px;
+ font-family:var(--label-font-family);
+ font-weight:var(--label-font-weight);
 }
 
 
@@ -70,51 +71,49 @@ font-weight:var(--label-font-weight);
 .BarLi {
  width:100%;
  list-style-position: outside; 
-list-style:none;
+ list-style:none;
 }
 
 .XTicks {
-display:flex;
-flex-direction:row;
-align-items:flex-start;
-justify-content:space-between;
-height:12px;
-border-top: 1px solid black;
-width:100%;
-margin-top:6px;
+ display:flex;
+ flex-direction:row;
+ align-items:flex-start;
+ justify-content:space-between;
+ height:12px;
+ border-top: 1px solid black;
+ width:100%;
+ margin-top:6px;
 }
 
 .TickLabel:before {
-content:var(--tick-label);
-font-family:var(--label-font-family);
-font-weight:var(--label-font-weight);
+ content:var(--tick-label);
+ font-family:var(--label-font-family);
+ font-weight:var(--label-font-weight);
 }
 
 .BarValue:hover { background-color: var(--default-hover-color); }
 
 
 .PlotOuterContainer {
-position:relative;
-background-color:transparent;
-display:flex;
-flex-direction:row;
-align-items:flex-start;
-width:var(--default-chart-width);
-height: var(--default-chart-height);
-
+ position:relative;
+ background-color:transparent;
+ display:flex;
+ flex-direction:row;
+ align-items:flex-start;
+ width:var(--default-chart-width);
+ height: var(--default-chart-height);
 }
 
 .ScatterMainContainer {
-position:relative;
-background-color:var(--default-light-background);
-display:flex;
-flex-direction:row;
-align-items:flex-end;
-
-border-left:0.5px solid black;
-border-bottom:0.5px solid black;
-height: var(--default-chart-height);
-width:100%
+ position:relative;
+ background-color:var(--default-light-background);
+ display:flex;
+ flex-direction:row;
+ align-items:flex-end;
+ border-left:0.5px solid black;
+ border-bottom:0.5px solid black;
+ height: var(--default-chart-height);
+ width:100%
 }
 
 .ScatterPoint {
@@ -123,9 +122,8 @@ width:100%
     background-color: transparent;
     position: absolute;
     display:flex;
-flex-direction:column;
-align-items:flex-end;
-
+    flex-direction:column;
+    align-items:flex-end;
 }
 
 .ScatterPoint:after {
@@ -151,93 +149,86 @@ align-items:flex-end;
 
 .ScatterValue {
  list-style-position: outside; 
-list-style:none;
-text-align: right;
-width:100%;
-color:var(--scatter-text-color);
-font-family:var(--label-font-family);
-font-weight:var(--label-font-weight);
+ list-style:none;
+ text-align: right;
+ width:100%;
+ color:var(--scatter-text-color);
+ font-family:var(--label-font-family);
+ font-weight:var(--label-font-weight);
 }
 
 .YTicks {
-display:flex;
-flex-direction:column;
-align-items:flex-start;
-justify-content:space-between;
-height:100%;
-border-right: 1px solid black;
-margin-top:6px;
-font-family:var(--label-font-family);
-font-weight:var(--label-font-weight);
+ display:flex;
+ flex-direction:column;
+ align-items:flex-start;
+ justify-content:space-between;
+ height:100%;
+ border-right: 1px solid black;
+ margin-top:6px;
+ font-family:var(--label-font-family);
+ font-weight:var(--label-font-weight);
 }
 
 .FlexColumn {
-display:flex;
-flex-direction:column;
-height:100%;
-width:100%;
-
+ display:flex;
+ flex-direction:column;
+ height:100%;
+ width:100%;
 }
 
 .FlexRow {
-display:flex;
-flex-direction:row;
-height:100%;
-width:100%;
-
+ display:flex;
+ flex-direction:row;
+ height:100%;
+ width:100%;
 }
 
+/* hacks */
 .FlexColumn > .BarLi > .XTicks {
-margin-top:0px;
+ margin-top:0px;
 }
 
 
 .InvisibleListItem {
-width:0;
-height:0;
-font-size:0;
+ width:0;
+ height:0;
+ font-size:0;
 }
 
 .LineOuterContainer {
-background-color:var(--default-light-background);
-display:flex;
-flex-direction:row;
-align-items:flex-start;
-justify-content:space-evenly;
-
-height: var(--default-chart-height);
-
-list-style-position: outside; 
-list-style:none;
+ background-color:var(--default-light-background);
+ display:flex;
+ flex-direction:row;
+ align-items:flex-start;
+ justify-content:space-evenly;
+ height: var(--default-chart-height);
+ list-style-position: outside; 
+ list-style:none;
 }
 
 
 
 
 .SegmentContainer {
-
-background-color:transparent;
-display:flex;
-flex-direction:column;
-justify-content:flex-end;
-flex-grow:1;
-height: 100%;
-
+ background-color:transparent;
+ display:flex;
+ flex-direction:column;
+ justify-content:flex-end;
+ flex-grow:1;
+ height: 100%;
 }
 
 .LineSegment {
  list-style-position: outside; 
-list-style:none;
-font-size:0;
-border-top-color:var(--chart-pallette-3);
-border-top-width:2px;
-height:calc(var(--line-y-to) - var(--line-y-from));
+ list-style:none;
+ font-size:0;
+ border-top-color:var(--chart-pallette-3);
+ border-top-width:2px;
+ height:calc(var(--line-y-to) - var(--line-y-from));
+ --positive-slope:to top left;
+ --negative-slope:to top right;
 
-
---positive-slope:to top left;
---negative-slope:to top right;
-
-background: 
+ background: 
  linear-gradient(var(--line-slope),
              transparent 0%,
              transparent calc(50% - 2px),
@@ -247,75 +238,68 @@ background:
 }
 
 .LineBlock {
-height:var(--line-y-from);
-width:100%;
-background-color:transparent;
-}
-
-:root {
---default-stack-width:150px;
---default-stack-padding:50px;
---bar-block-text-color:black;
+ height:var(--line-y-from);
+ width:100%;
+ background-color:transparent;
 }
 
 .BarBlock {
-height:var(--stack-height);
-width:var(--default-stack-width);
-border:.25px solid black;
-text-align:center;
+ height:var(--stack-height);
+ width:var(--default-stack-width);
+ border:.25px solid black;
+ text-align:center;
  list-style-position: outside; 
-list-style:none;
-color:var(--bar-block-text-color);
-font-family:var(--label-font-family);
-font-weight:var(--label-font-weight);
-padding-top:1px;
+ list-style:none;
+ color:var(--bar-block-text-color);
+ font-family:var(--label-font-family);
+ font-weight:var(--label-font-weight);
+ padding-top:1px;
 }
 
 
-
+/* color cycling */
 .BarBlock:nth-child(6n+1), .WaterfallContainer:nth-child(6n+1) > .BarBlock {
-background-color:var(--chart-pallette-light-1)
+ background-color:var(--chart-pallette-light-1)
 }
 
 .BarBlock:nth-child(6n+2), .WaterfallContainer:nth-child(6n+2) > .BarBlock {
-background-color:var(--chart-pallette-light-2)
+ background-color:var(--chart-pallette-light-2)
 }
 
 .BarBlock:nth-child(6n+3), .WaterfallContainer:nth-child(6n+3) > .BarBlock {
-background-color:var(--chart-pallette-light-3)
+ background-color:var(--chart-pallette-light-3)
 }
 
 .BarBlock:nth-child(6n+4), .WaterfallContainer:nth-child(6n+4) > .BarBlock {
-background-color:var(--chart-pallette-light-4)
+ background-color:var(--chart-pallette-light-4)
 }
 
 .BarBlock:nth-child(6n+5), .WaterfallContainer:nth-child(6n+5) > .BarBlock {
-background-color:var(--chart-pallette-light-5)
+ background-color:var(--chart-pallette-light-5)
 }
 
 .BarBlock:nth-child(6n+6),  .WaterfallContainer:nth-child(6n+6) > .BarBlock{
-background-color:var(--chart-pallette-light-6)
+ background-color:var(--chart-pallette-light-6)
 }
 
 
 .BarBlock:hover { background-color: var(--default-hover-color); }
 
 .StackFlexColumn {
-width:calc(var(--default-stack-width)+2*var(--default-stack-padding));
-padding-left:var(--default-stack-padding);
-padding-right:var(--default-stack-padding);
-border-bottom:1px solid black;
-justify-content:flex-end;
+ width:calc(var(--default-stack-width)+2*var(--default-stack-padding));
+ padding-left:var(--default-stack-padding);
+ padding-right:var(--default-stack-padding);
+ border-bottom:1px solid black;
+ justify-content:flex-end;
 }
 
 .WaterfallContainer {
-
-background-color:transparent;
-display:flex;
-flex-direction:column;
-justify-content:flex-end;
-flex-grow:1;
-height: 100%;
-margin-left:10px;
-margin-right:10px;
+ background-color:transparent;
+ display:flex;
+ flex-direction:column;
+ justify-content:flex-end;
+ flex-grow:1;
+ height: 100%;
+ margin-left:10px;
+ margin-right:10px;
 }

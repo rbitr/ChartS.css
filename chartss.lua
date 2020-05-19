@@ -1,5 +1,5 @@
 -- ChartSS.lua
--- Copyright Andrew Marble, 2020
+-- Deltas from the boilerplate pandoc filter file are Copyright Andrew Marble, 2020
 --
 -- Invoke with: pandoc -t ChartSS.lua
 --
@@ -299,7 +299,7 @@ function BarChart(items)
      table.insert(buffer2,"<span class=\"TickLabel\" style=\"--tick-label:\'" .. string.format("%.1f",step*m/.9/4) ..  "\'\"></span>")
     end
 
-    return "</span></li><ul class=\"BarList\">\n" .. table.concat(buffer2, "\n") .. "\n</ul>"
+    return "<ul class=\"BarList\">\n" .. table.concat(buffer2, "\n") .. "\n</ul>"
 
 end
 
@@ -381,7 +381,7 @@ function LineChart(items)
 
   table.insert(buffer2,"<div class=\"FlexColumn\"> <div class=\"LineOuterContainer\">")
 
-  table.insert(buffer2,"<div class=\"InvisibleListItem\">" .. nx[1] .. " : " .. ny[1] .. "</div>")
+  table.insert(buffer2,"<li class=\"InvisibleListItem\">" .. nx[1] .. " : " .. ny[1] .. "</li>")
 
   for i = 2,#nx do
 
@@ -397,7 +397,13 @@ function LineChart(items)
       dir="to top right"
     end
 
-    table.insert(buffer2,"<div class=\"SegmentContainer\"  style=\"--line-y-from:".. yf .."%;--line-y-to:"..yt.."%;--line-slope:"..dir.."\"> <li class=\"LineSegment\">" .. nx[i] .. " : " .. ny[i] .. "</li> <div class=\"LineBlock\"></div> </div>")
+    if yf==yt then
+      table.insert(buffer2,"<div class=\"SegmentContainer\"  style=\"--line-y-from:".. yf .."%;--line-y-to:"..yt.."%;--line-slope:"..dir.."\"> <li class=\"LineSegment\" style=\"border-top-style:solid\">" .. nx[i] .. " : " .. ny[i] .. "</li> <div class=\"LineBlock\"></div> </div>")
+  
+    else
+
+      table.insert(buffer2,"<div class=\"SegmentContainer\"  style=\"--line-y-from:".. yf .."%;--line-y-to:"..yt.."%;--line-slope:"..dir.."\"> <li class=\"LineSegment\">" .. nx[i] .. " : " .. ny[i] .. "</li> <div class=\"LineBlock\"></div> </div>")
+    end
 
   end 
 
@@ -581,7 +587,7 @@ function StackedBar (items)
 
   table.insert(buffer2,"</div></div>")
 
-  return "</span></li><ul class=\"BarList\">\n" .. table.concat(buffer2, "\n") .. "\n</ul>"
+  return "<ul class=\"BarList\">\n" .. table.concat(buffer2, "\n") .. "\n</ul>"
 
 end
 

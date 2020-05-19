@@ -14,25 +14,58 @@
 <ul>
 <li>Charts directly from markdown lists via <code>pandoc</code></li>
 <li>Retains accessible, semantic HTML</li>
-<li>No javascript, uses only a small .css file</li>
-<li>Parse with <code>pandoc</code> or use as templates</li>
+<li>No javascript or other frameworks, no external dependencies, uses only a small .css file</li>
+<li>Use html templates to directly create charts, or convert from markdown</li>
 </ul>
+
+<p>The point of C💚SS.css is to allow easy creation of simple charts for documentation, data storytelling / journalism, etc. It features plots of 1-D lists, and has a custom markdown filter that converts suitably formatted lists directly to charts. It has no dependencies (other than a modern browser), and is very small compared to javascript based charting tools. The html is based on <code>&lt;ul&gt;</code> lists and will collapse back to readible lists in the absence of css support, making it accessible to all readers. It is open source and easily configurable according to project needs.</p>
+
+<p>The non-chart elements on the html version of this page were styled with <a href='https://andybrewer.github.io/mvp/' title=''>mvp.css</a>. MVP.css was one of the inspirations for C💚SS.css. Although C💚SS.css turned out very differently, MVP.css got me on to the idea of having a simple, self-contained .css file that could easily transform a text page into something nice.</p>
 
 <h2 id="usage">Usage</h2>
 
+<p><strong>Requirements</strong></p>
+
+<p>A modern browser that supports <code>css</code> is required. It has been tested on chrome and firefox.</p>
+
+<p>To write html directly, all you need is the C💚SS.css style file.</p>
+
+<p><a href='./ChartSS.css' title=''><em>Download C💚SS.css</em></a></p>
+
+<p>See below or view source for usage.</p>
+
+<p>To convert directly from markdown to html charts, you will need <code>pandoc</code> installed. Even if you never use C💚SS.css, you should still get <code>pandoc</code>. You can find information on how to install it <a href='https://pandoc.org/installing.html' title=''>here</a>. There is good information on markdown syntax <a href='https://github.com/adam-p/markdown-here/wiki/Markdown-Cheatsheet' title=''>here</a>.</p>
+
+<p>Pandoc works with <code>charts.lua</code> to parse markdown into html that uses C💚SS.css.</p>
+
+<p><a href='./charts.lua' title=''><em>Download charts.lua</em></a></p>
+
+<p><strong>Running chartss.lua</strong></p>
+
+<p>The following command creates a stand alone html file out of a markdown file. Markdown lists conforming to the syntax discussed below will automatically be converted into charts.</p>
+
 <pre><code>$ pandoc -t chartss.lua infile.md &gt; outfile.html</code></pre>
 
-<h2 id="details-coming-soon">Details Coming Soon</h2>
-
-<p>…</p>
-
-<h2 id="gallery">Gallery</h2>
+<h2 id="gallery-and-markdown-syntax">Gallery and Markdown Syntax</h2>
 
 <h3 id="bar-charts">Bar Charts:</h3>
 
-<p>(see html version)</p>
+<p>Syntax</p>
 
-</span></li><ul class="BarList">
+<p><code>(*|-) category: value</code></p>
+
+<p>Example</p>
+
+<pre><code>- Dogs: 39
+- Cats: 7
+- Lions: 36
+- Tigers: 55
+- Bears: 33
+- Walruses: 30</code></pre>
+
+<p>Output (see html version)</p>
+
+<ul class="BarList">
 <li class="BarLi"><span class="ChartLabel">Dogs</span><span class="BarSep"> : </span><span class="BarValue" style="--bar-length:63%">39</span></li>
 <li class="BarLi"><span class="ChartLabel">Cats</span><span class="BarSep"> : </span><span class="BarValue" style="--bar-length:11%">7</span></li>
 <li class="BarLi"><span class="ChartLabel">Lions</span><span class="BarSep"> : </span><span class="BarValue" style="--bar-length:58%">36</span></li>
@@ -49,7 +82,18 @@
 
 <h3 id="scatter-plots">Scatter Plots:</h3>
 
-<p>(see html version)</p>
+<p>Syntax</p>
+
+<p><code>(*|-) (xi,yi)</code></p>
+
+<p>Example</p>
+
+<pre><code>- (15,12)
+- (0.25,6.78)
+- (-.7,9)
+- (-4,-6)</code></pre>
+
+<p>Output (see html version)</p>
 
 <div class="PlotOuterContainer">
 <div class="YTicks">
@@ -76,6 +120,21 @@
 
 <h3 id="a-regular-list">A Regular List:</h3>
 
+<p>Syntax</p>
+
+<p><code>(*|-) List Item</code></p>
+
+<p>Example</p>
+
+<pre><code>* Cats
+* Dogs
+* Mice
+* Men
+* Lambs
+* Lions</code></pre>
+
+<p>Output (if C💚SS.css cannot chart it, a normal list is displayed)</p>
+
 <ul>
 <li>Cats</li>
 <li>Dogs</li>
@@ -87,7 +146,24 @@
 
 <h3 id="line-plot">Line Plot:</h3>
 
-<p>(see html version)</p>
+<p>Syntax (constant spacing indicates a line)</p>
+
+<pre><code>(*|-) x1 : y1
+(*|-) x1+dx : y2
+(*|-) x1+2dx : y3
+...</code></pre>
+
+<p>Example</p>
+
+<pre><code>* 1.5 : 3.3
+* 3 : -1.2
+* 4.5 : 0
+* 6 : 0
+* 7.5 : 1.5
+* 9 : 4
+* 10.5 : 8</code></pre>
+
+<p>Output (see html version)</p>
 
 <div class="PlotOuterContainer">
 <div class="YTicks">
@@ -99,11 +175,11 @@
 <span class="TickLabel" style="--tick-label:'-1.7'"></span>
 </div>
 <div class="FlexColumn"> <div class="LineOuterContainer">
-<div class="InvisibleListItem">1.5 : 3.3</div>
+<li class="InvisibleListItem">1.5 : 3.3</li>
 <div class="SegmentContainer"  style="--line-y-from:4.5%;--line-y-to:49.0%;--line-slope:to top right"> <li class="LineSegment">3 : -1.2</li> <div class="LineBlock"></div> </div>
 <div class="SegmentContainer"  style="--line-y-from:4.5%;--line-y-to:16.3%;--line-slope:to top left"> <li class="LineSegment">4.5 : 0</li> <div class="LineBlock"></div> </div>
-<div class="SegmentContainer"  style="--line-y-from:16.3%;--line-y-to:18.8%;--line-slope:to top left"> <li class="LineSegment">6 : 0.25</li> <div class="LineBlock"></div> </div>
-<div class="SegmentContainer"  style="--line-y-from:18.8%;--line-y-to:31.2%;--line-slope:to top left"> <li class="LineSegment">7.5 : 1.5</li> <div class="LineBlock"></div> </div>
+<div class="SegmentContainer"  style="--line-y-from:16.3%;--line-y-to:16.3%;--line-slope:to top left"> <li class="LineSegment" style="border-top-style:solid">6 : 0</li> <div class="LineBlock"></div> </div>
+<div class="SegmentContainer"  style="--line-y-from:16.3%;--line-y-to:31.2%;--line-slope:to top left"> <li class="LineSegment">7.5 : 1.5</li> <div class="LineBlock"></div> </div>
 <div class="SegmentContainer"  style="--line-y-from:31.2%;--line-y-to:55.9%;--line-slope:to top left"> <li class="LineSegment">9 : 4</li> <div class="LineBlock"></div> </div>
 <div class="SegmentContainer"  style="--line-y-from:55.9%;--line-y-to:95.5%;--line-slope:to top left"> <li class="LineSegment">10.5 : 8</li> <div class="LineBlock"></div> </div>
 </div><div class="BarLi"> <span class="XTicks">
@@ -117,9 +193,21 @@
 
 <h3 id="stacked-bar-a-pie-chart-for-grownups">Stacked Bar (a pie chart for grownups):</h3>
 
-<p>(see html version)</p>
+<p>Syntax (add a plus sign to the end of labels)</p>
 
-</span></li><ul class="BarList">
+<p><code>(*|-) category: label+</code></p>
+
+<p>Example</p>
+
+<pre><code>* Dogs : 20+
+* Cats : 10+
+* Lions : 30+
+* Tigers : 15+
+* Bears : 20+</code></pre>
+
+<p>Output (see html version)</p>
+
+<ul class="BarList">
 <div class="PlotOuterContainer">
 <div class="YTicks">
 <span class="TickLabel" style="--tick-label:'99.8'"></span>
@@ -140,7 +228,14 @@
 
 <h3 id="waterfall-chart">Waterfall Chart</h3>
 
-<p>(see html version)</p>
+<p>Syntax</p>
+
+<pre><code>(*|-) total: value=
+(*|-) category1: value1+
+(*|-) category2: value2+
+...</code></pre>
+
+<p>Output (see html version)</p>
 
 <div class="PlotOuterContainer">
 <div class="YTicks">
@@ -160,6 +255,130 @@
 <div class="WaterfallContainer"> <li class="BarBlock" style="--stack-height:20.1%;width:100%">Bears : 20</li> <div class="LineBlock" style="--line-y-from:-0.0%"></div> </div>
 </div><div class="BarLi"> <span class="XTicks">
 </span></div></div></div>
+
+<h2 id="html-templates">HTML templates</h2>
+
+<p>Note: this html was generated using the defaults of <code>chartss.lua</code>. This means that 1. More or fewer ticks can be added on the axes and 2. There has been som autoscaling applied to the chart areas. If you are creating manual charts, you will have to scale between the label values and the percentage values that the charting functions use.</p>
+
+<h3 id="bar-chart">Bar Chart</h3>
+
+<pre><code class="html">&lt;ul class=&quot;BarList&quot;&gt;
+&lt;div class=&quot;PlotOuterContainer&quot;&gt;
+&lt;div class=&quot;YTicks&quot;&gt;
+&lt;span class=&quot;TickLabel&quot; style=&quot;--tick-label:&#39;99.8&#39;&quot;&gt;&lt;/span&gt;
+&lt;span class=&quot;TickLabel&quot; style=&quot;--tick-label:&#39;79.8&#39;&quot;&gt;&lt;/span&gt;
+&lt;span class=&quot;TickLabel&quot; style=&quot;--tick-label:&#39;59.9&#39;&quot;&gt;&lt;/span&gt;
+&lt;span class=&quot;TickLabel&quot; style=&quot;--tick-label:&#39;39.9&#39;&quot;&gt;&lt;/span&gt;
+&lt;span class=&quot;TickLabel&quot; style=&quot;--tick-label:&#39;20.0&#39;&quot;&gt;&lt;/span&gt;
+&lt;span class=&quot;TickLabel&quot; style=&quot;--tick-label:&#39;0.0&#39;&quot;&gt;&lt;/span&gt;
+&lt;/div&gt;
+&lt;div class=&quot;FlexColumn StackFlexColumn&quot;&gt;
+&lt;li class=&quot;BarBlock&quot; style=&quot;--stack-height:20.1%&quot;&gt;Dogs: 20&lt;/li&gt;
+&lt;li class=&quot;BarBlock&quot; style=&quot;--stack-height:10.0%&quot;&gt;Cats: 10&lt;/li&gt;
+&lt;li class=&quot;BarBlock&quot; style=&quot;--stack-height:30.1%&quot;&gt;Lions: 30&lt;/li&gt;
+&lt;li class=&quot;BarBlock&quot; style=&quot;--stack-height:15.0%&quot;&gt;Tigers: 15&lt;/li&gt;
+&lt;li class=&quot;BarBlock&quot; style=&quot;--stack-height:20.1%&quot;&gt;Bears: 20&lt;/li&gt;
+&lt;/div&gt;&lt;/div&gt;
+&lt;/ul&gt;</code></pre>
+
+<h3 id="scatter-plot">Scatter Plot</h3>
+
+<pre><code class="html">&lt;div class=&quot;PlotOuterContainer&quot;&gt;
+&lt;div class=&quot;YTicks&quot;&gt;
+&lt;span class=&quot;TickLabel&quot; style=&quot;--tick-label:&#39;12.9&#39;&quot;&gt;&lt;/span&gt;
+&lt;span class=&quot;TickLabel&quot; style=&quot;--tick-label:&#39;9.0&#39;&quot;&gt;&lt;/span&gt;
+&lt;span class=&quot;TickLabel&quot; style=&quot;--tick-label:&#39;5.0&#39;&quot;&gt;&lt;/span&gt;
+&lt;span class=&quot;TickLabel&quot; style=&quot;--tick-label:&#39;1.0&#39;&quot;&gt;&lt;/span&gt;
+&lt;span class=&quot;TickLabel&quot; style=&quot;--tick-label:&#39;-3.0&#39;&quot;&gt;&lt;/span&gt;
+&lt;span class=&quot;TickLabel&quot; style=&quot;--tick-label:&#39;-6.9&#39;&quot;&gt;&lt;/span&gt;
+&lt;/div&gt;
+&lt;div class=&quot;FlexColumn&quot;&gt; &lt;div class=&quot;ScatterMainContainer&quot;&gt;
+&lt;div class=&quot;ScatterPoint&quot; style=&quot;--pixel-x-percent:95%;--pixel-y-percent:95%&quot;&gt;&lt;li class=&quot;ScatterValue&quot;&gt;(15,12)&lt;/li&gt;&lt;/div&gt;
+&lt;div class=&quot;ScatterPoint&quot; style=&quot;--pixel-x-percent:25%;--pixel-y-percent:69%&quot;&gt;&lt;li class=&quot;ScatterValue&quot;&gt;(0.25,6.78)&lt;/li&gt;&lt;/div&gt;
+&lt;div class=&quot;ScatterPoint&quot; style=&quot;--pixel-x-percent:20%;--pixel-y-percent:80%&quot;&gt;&lt;li class=&quot;ScatterValue&quot;&gt;(-0.7,9)&lt;/li&gt;&lt;/div&gt;
+&lt;div class=&quot;ScatterPoint&quot; style=&quot;--pixel-x-percent:5%;--pixel-y-percent:5%&quot;&gt;&lt;li class=&quot;ScatterValue&quot;&gt;(-4,-6)&lt;/li&gt;&lt;/div&gt;
+&lt;/div&gt;&lt;div class=&quot;BarLi&quot;&gt; &lt;span class=&quot;XTicks&quot;&gt;
+&lt;span class=&quot;TickLabel&quot; style=&quot;--tick-label:&#39;-5.0&#39;&quot;&gt;&lt;/span&gt;
+&lt;span class=&quot;TickLabel&quot; style=&quot;--tick-label:&#39;-0.8&#39;&quot;&gt;&lt;/span&gt;
+&lt;span class=&quot;TickLabel&quot; style=&quot;--tick-label:&#39;3.4&#39;&quot;&gt;&lt;/span&gt;
+&lt;span class=&quot;TickLabel&quot; style=&quot;--tick-label:&#39;7.6&#39;&quot;&gt;&lt;/span&gt;
+&lt;span class=&quot;TickLabel&quot; style=&quot;--tick-label:&#39;11.8&#39;&quot;&gt;&lt;/span&gt;
+&lt;span class=&quot;TickLabel&quot; style=&quot;--tick-label:&#39;15.9&#39;&quot;&gt;&lt;/span&gt;
+&lt;/span&gt;&lt;/div&gt;&lt;/div&gt;&lt;/div&gt;</code></pre>
+
+<h3 id="line-plot-1">Line Plot</h3>
+
+<p>(For line plots, the lower y-value of each line segment always has to come first, as <code>--line-y-from</code>, with the direction specified by <code>--line-slope</code>. Also note that a zero slope line needs its <code>border-top-style:solid</code> property set as shown below as a hack to show the line.</p>
+
+<pre><code>&lt;div class=&quot;PlotOuterContainer&quot;&gt;
+&lt;div class=&quot;YTicks&quot;&gt;
+&lt;span class=&quot;TickLabel&quot; style=&quot;--tick-label:&#39;8.4&#39;&quot;&gt;&lt;/span&gt;
+&lt;span class=&quot;TickLabel&quot; style=&quot;--tick-label:&#39;6.4&#39;&quot;&gt;&lt;/span&gt;
+&lt;span class=&quot;TickLabel&quot; style=&quot;--tick-label:&#39;4.4&#39;&quot;&gt;&lt;/span&gt;
+&lt;span class=&quot;TickLabel&quot; style=&quot;--tick-label:&#39;2.4&#39;&quot;&gt;&lt;/span&gt;
+&lt;span class=&quot;TickLabel&quot; style=&quot;--tick-label:&#39;0.4&#39;&quot;&gt;&lt;/span&gt;
+&lt;span class=&quot;TickLabel&quot; style=&quot;--tick-label:&#39;-1.7&#39;&quot;&gt;&lt;/span&gt;
+&lt;/div&gt;
+&lt;div class=&quot;FlexColumn&quot;&gt; &lt;div class=&quot;LineOuterContainer&quot;&gt;
+&lt;li class=&quot;InvisibleListItem&quot;&gt;1.5 : 3.3&lt;/li&gt;
+&lt;div class=&quot;SegmentContainer&quot;  style=&quot;--line-y-from:4.5%;--line-y-to:49.0%;--line-slope:to top right&quot;&gt; &lt;li class=&quot;LineSegment&quot;&gt;3 : -1.2&lt;/li&gt; &lt;div class=&quot;LineBlock&quot;&gt;&lt;/div&gt; &lt;/div&gt;
+&lt;div class=&quot;SegmentContainer&quot;  style=&quot;--line-y-from:4.5%;--line-y-to:16.3%;--line-slope:to top left&quot;&gt; &lt;li class=&quot;LineSegment&quot;&gt;4.5 : 0&lt;/li&gt; &lt;div class=&quot;LineBlock&quot;&gt;&lt;/div&gt; &lt;/div&gt;
+&lt;div class=&quot;SegmentContainer&quot;  style=&quot;--line-y-from:16.3%;--line-y-to:16.3%;--line-slope:to top left&quot;&gt; &lt;li class=&quot;LineSegment&quot; style=&quot;border-top-style:solid&quot;&gt;6 : 0&lt;/li&gt; &lt;div class=&quot;LineBlock&quot;&gt;&lt;/div&gt; &lt;/div&gt;
+&lt;div class=&quot;SegmentContainer&quot;  style=&quot;--line-y-from:16.3%;--line-y-to:31.2%;--line-slope:to top left&quot;&gt; &lt;li class=&quot;LineSegment&quot;&gt;7.5 : 1.5&lt;/li&gt; &lt;div class=&quot;LineBlock&quot;&gt;&lt;/div&gt; &lt;/div&gt;
+&lt;div class=&quot;SegmentContainer&quot;  style=&quot;--line-y-from:31.2%;--line-y-to:55.9%;--line-slope:to top left&quot;&gt; &lt;li class=&quot;LineSegment&quot;&gt;9 : 4&lt;/li&gt; &lt;div class=&quot;LineBlock&quot;&gt;&lt;/div&gt; &lt;/div&gt;
+&lt;div class=&quot;SegmentContainer&quot;  style=&quot;--line-y-from:55.9%;--line-y-to:95.5%;--line-slope:to top left&quot;&gt; &lt;li class=&quot;LineSegment&quot;&gt;10.5 : 8&lt;/li&gt; &lt;div class=&quot;LineBlock&quot;&gt;&lt;/div&gt; &lt;/div&gt;
+&lt;/div&gt;&lt;div class=&quot;BarLi&quot;&gt; &lt;span class=&quot;XTicks&quot;&gt;
+&lt;span class=&quot;TickLabel&quot; style=&quot;--tick-label:&#39;1.1&#39;&quot;&gt;&lt;/span&gt;
+&lt;span class=&quot;TickLabel&quot; style=&quot;--tick-label:&#39;3.0&#39;&quot;&gt;&lt;/span&gt;
+&lt;span class=&quot;TickLabel&quot; style=&quot;--tick-label:&#39;5.0&#39;&quot;&gt;&lt;/span&gt;
+&lt;span class=&quot;TickLabel&quot; style=&quot;--tick-label:&#39;7.0&#39;&quot;&gt;&lt;/span&gt;
+&lt;span class=&quot;TickLabel&quot; style=&quot;--tick-label:&#39;9.0&#39;&quot;&gt;&lt;/span&gt;
+&lt;span class=&quot;TickLabel&quot; style=&quot;--tick-label:&#39;10.9&#39;&quot;&gt;&lt;/span&gt;
+&lt;/span&gt;&lt;/div&gt;&lt;/div&gt;&lt;/div&gt;</code></pre>
+
+<h3 id="stacked-bar-chart">Stacked Bar Chart</h3>
+
+<pre><code class="html">&lt;ul class=&quot;BarList&quot;&gt;
+&lt;div class=&quot;PlotOuterContainer&quot;&gt;
+&lt;div class=&quot;YTicks&quot;&gt;
+&lt;span class=&quot;TickLabel&quot; style=&quot;--tick-label:&#39;99.8&#39;&quot;&gt;&lt;/span&gt;
+&lt;span class=&quot;TickLabel&quot; style=&quot;--tick-label:&#39;79.8&#39;&quot;&gt;&lt;/span&gt;
+&lt;span class=&quot;TickLabel&quot; style=&quot;--tick-label:&#39;59.9&#39;&quot;&gt;&lt;/span&gt;
+&lt;span class=&quot;TickLabel&quot; style=&quot;--tick-label:&#39;39.9&#39;&quot;&gt;&lt;/span&gt;
+&lt;span class=&quot;TickLabel&quot; style=&quot;--tick-label:&#39;20.0&#39;&quot;&gt;&lt;/span&gt;
+&lt;span class=&quot;TickLabel&quot; style=&quot;--tick-label:&#39;0.0&#39;&quot;&gt;&lt;/span&gt;
+&lt;/div&gt;
+&lt;div class=&quot;FlexColumn StackFlexColumn&quot;&gt;
+&lt;li class=&quot;BarBlock&quot; style=&quot;--stack-height:20.1%&quot;&gt;Dogs: 20&lt;/li&gt;
+&lt;li class=&quot;BarBlock&quot; style=&quot;--stack-height:10.0%&quot;&gt;Cats: 10&lt;/li&gt;
+&lt;li class=&quot;BarBlock&quot; style=&quot;--stack-height:30.1%&quot;&gt;Lions: 30&lt;/li&gt;
+&lt;li class=&quot;BarBlock&quot; style=&quot;--stack-height:15.0%&quot;&gt;Tigers: 15&lt;/li&gt;
+&lt;li class=&quot;BarBlock&quot; style=&quot;--stack-height:20.1%&quot;&gt;Bears: 20&lt;/li&gt;
+&lt;/div&gt;&lt;/div&gt;
+&lt;/ul&gt;</code></pre>
+
+<h3 id="waterfall-chart-1">Waterfall Chart</h3>
+
+<p>(You need to account for the bar height as well as the padding that uses a <code>LineBlock</code>)</p>
+
+<pre><code class="html">&lt;div class=&quot;PlotOuterContainer&quot;&gt;
+&lt;div class=&quot;YTicks&quot;&gt;
+&lt;span class=&quot;TickLabel&quot; style=&quot;--tick-label:&#39;99.8&#39;&quot;&gt;&lt;/span&gt;
+&lt;span class=&quot;TickLabel&quot; style=&quot;--tick-label:&#39;79.8&#39;&quot;&gt;&lt;/span&gt;
+&lt;span class=&quot;TickLabel&quot; style=&quot;--tick-label:&#39;59.9&#39;&quot;&gt;&lt;/span&gt;
+&lt;span class=&quot;TickLabel&quot; style=&quot;--tick-label:&#39;39.9&#39;&quot;&gt;&lt;/span&gt;
+&lt;span class=&quot;TickLabel&quot; style=&quot;--tick-label:&#39;20.0&#39;&quot;&gt;&lt;/span&gt;
+&lt;span class=&quot;TickLabel&quot; style=&quot;--tick-label:&#39;0.0&#39;&quot;&gt;&lt;/span&gt;
+&lt;/div&gt;
+&lt;div class=&quot;FlexColumn&quot;&gt; &lt;div class=&quot;LineOuterContainer&quot;&gt;
+&lt;div class=&quot;WaterfallContainer&quot;&gt; &lt;li class=&quot;BarBlock&quot; style=&quot;--stack-height:95.2%;width:100%&quot;&gt;Animals: 95&lt;/li&gt; &lt;div class=&quot;LineBlock&quot; style=&quot;--line-y-from:0.0%&quot;&gt;&lt;/div&gt; &lt;/div&gt;
+&lt;div class=&quot;WaterfallContainer&quot;&gt; &lt;li class=&quot;BarBlock&quot; style=&quot;--stack-height:20.1%;width:100%&quot;&gt;Dogs : 20&lt;/li&gt; &lt;div class=&quot;LineBlock&quot; style=&quot;--line-y-from:75.2%&quot;&gt;&lt;/div&gt; &lt;/div&gt;
+&lt;div class=&quot;WaterfallContainer&quot;&gt; &lt;li class=&quot;BarBlock&quot; style=&quot;--stack-height:10.0%;width:100%&quot;&gt;Cats : 10&lt;/li&gt; &lt;div class=&quot;LineBlock&quot; style=&quot;--line-y-from:65.2%&quot;&gt;&lt;/div&gt; &lt;/div&gt;
+&lt;div class=&quot;WaterfallContainer&quot;&gt; &lt;li class=&quot;BarBlock&quot; style=&quot;--stack-height:30.1%;width:100%&quot;&gt;Lions : 30&lt;/li&gt; &lt;div class=&quot;LineBlock&quot; style=&quot;--line-y-from:35.1%&quot;&gt;&lt;/div&gt; &lt;/div&gt;
+&lt;div class=&quot;WaterfallContainer&quot;&gt; &lt;li class=&quot;BarBlock&quot; style=&quot;--stack-height:15.0%;width:100%&quot;&gt;Tigers : 15&lt;/li&gt; &lt;div class=&quot;LineBlock&quot; style=&quot;--line-y-from:20.1%&quot;&gt;&lt;/div&gt; &lt;/div&gt;
+&lt;div class=&quot;WaterfallContainer&quot;&gt; &lt;li class=&quot;BarBlock&quot; style=&quot;--stack-height:20.1%;width:100%&quot;&gt;Bears : 20&lt;/li&gt; &lt;div class=&quot;LineBlock&quot; style=&quot;--line-y-from:-0.0%&quot;&gt;&lt;/div&gt; &lt;/div&gt;
+&lt;/div&gt;&lt;div class=&quot;BarLi&quot;&gt; &lt;span class=&quot;XTicks&quot;&gt;
+&lt;/span&gt;&lt;/div&gt;&lt;/div&gt;&lt;/div&gt;</code></pre>
 </body>
 </html>
 
