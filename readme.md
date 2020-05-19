@@ -1,6 +1,8 @@
 # C💚SS.css (ChartSS.css) - accessible html/css charts with markdown support
 
-If you're viewing on github, see the html version at <https://rbitr.github.io/ChartS.css/>
+If you're viewing on github, see the html version at [here](https://rbitr.github.io/ChartS.css/).
+
+Likewise, if you're viewing the website, you can see the github page [here](https://github.com/rbitr/ChartS.css)
 
 ## Features
 
@@ -28,9 +30,9 @@ See below or view source for usage.
 
 To convert directly from markdown to html charts, you will need `pandoc` installed. Even if you never use C💚SS.css, you should still get `pandoc`. You can find information on how to install it [here](https://pandoc.org/installing.html). There is good information on markdown syntax [here](https://github.com/adam-p/markdown-here/wiki/Markdown-Cheatsheet).
 
-Pandoc works with `charts.lua` to parse markdown into html that uses C💚SS.css.
+Pandoc works with `chartss.lua` to parse markdown into html that uses C💚SS.css.
 
-[*Download charts.lua*](./charts.lua)
+[*Download charts.lua*](./chartss.lua)
 
 __Running chartss.lua__
 

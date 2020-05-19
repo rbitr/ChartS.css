@@ -7,7 +7,9 @@
 <body style="margin:3%">
 <h1 id="css.css-chartss.css---accessible-htmlcss-charts-with-markdown-support">C💚SS.css (ChartSS.css) - accessible html/css charts with markdown support</h1>
 
-<p>If you’re viewing on github, see the html version at <a href='https://rbitr.github.io/ChartS.css/' title=''>https://rbitr.github.io/ChartS.css/</a></p>
+<p>If you’re viewing on github, see the html version at <a href='https://rbitr.github.io/ChartS.css/' title=''>here</a>.</p>
+
+<p>Likewise, if you’re viewing the website, you can see the github page <a href='https://github.com/rbitr/ChartS.css' title=''>here</a></p>
 
 <h2 id="features">Features</h2>
 
@@ -36,9 +38,9 @@
 
 <p>To convert directly from markdown to html charts, you will need <code>pandoc</code> installed. Even if you never use C💚SS.css, you should still get <code>pandoc</code>. You can find information on how to install it <a href='https://pandoc.org/installing.html' title=''>here</a>. There is good information on markdown syntax <a href='https://github.com/adam-p/markdown-here/wiki/Markdown-Cheatsheet' title=''>here</a>.</p>
 
-<p>Pandoc works with <code>charts.lua</code> to parse markdown into html that uses C💚SS.css.</p>
+<p>Pandoc works with <code>chartss.lua</code> to parse markdown into html that uses C💚SS.css.</p>
 
-<p><a href='./charts.lua' title=''><em>Download charts.lua</em></a></p>
+<p><a href='./chartss.lua' title=''><em>Download charts.lua</em></a></p>
 
 <p><strong>Running chartss.lua</strong></p>
 
@@ -310,7 +312,7 @@
 
 <p>(For line plots, the lower y-value of each line segment always has to come first, as <code>--line-y-from</code>, with the direction specified by <code>--line-slope</code>. Also note that a zero slope line needs its <code>border-top-style:solid</code> property set as shown below as a hack to show the line.</p>
 
-<pre><code>&lt;div class=&quot;PlotOuterContainer&quot;&gt;
+<pre><code class="html">&lt;div class=&quot;PlotOuterContainer&quot;&gt;
 &lt;div class=&quot;YTicks&quot;&gt;
 &lt;span class=&quot;TickLabel&quot; style=&quot;--tick-label:&#39;8.4&#39;&quot;&gt;&lt;/span&gt;
 &lt;span class=&quot;TickLabel&quot; style=&quot;--tick-label:&#39;6.4&#39;&quot;&gt;&lt;/span&gt;
@@ -321,12 +323,24 @@
 &lt;/div&gt;
 &lt;div class=&quot;FlexColumn&quot;&gt; &lt;div class=&quot;LineOuterContainer&quot;&gt;
 &lt;li class=&quot;InvisibleListItem&quot;&gt;1.5 : 3.3&lt;/li&gt;
-&lt;div class=&quot;SegmentContainer&quot;  style=&quot;--line-y-from:4.5%;--line-y-to:49.0%;--line-slope:to top right&quot;&gt; &lt;li class=&quot;LineSegment&quot;&gt;3 : -1.2&lt;/li&gt; &lt;div class=&quot;LineBlock&quot;&gt;&lt;/div&gt; &lt;/div&gt;
-&lt;div class=&quot;SegmentContainer&quot;  style=&quot;--line-y-from:4.5%;--line-y-to:16.3%;--line-slope:to top left&quot;&gt; &lt;li class=&quot;LineSegment&quot;&gt;4.5 : 0&lt;/li&gt; &lt;div class=&quot;LineBlock&quot;&gt;&lt;/div&gt; &lt;/div&gt;
-&lt;div class=&quot;SegmentContainer&quot;  style=&quot;--line-y-from:16.3%;--line-y-to:16.3%;--line-slope:to top left&quot;&gt; &lt;li class=&quot;LineSegment&quot; style=&quot;border-top-style:solid&quot;&gt;6 : 0&lt;/li&gt; &lt;div class=&quot;LineBlock&quot;&gt;&lt;/div&gt; &lt;/div&gt;
-&lt;div class=&quot;SegmentContainer&quot;  style=&quot;--line-y-from:16.3%;--line-y-to:31.2%;--line-slope:to top left&quot;&gt; &lt;li class=&quot;LineSegment&quot;&gt;7.5 : 1.5&lt;/li&gt; &lt;div class=&quot;LineBlock&quot;&gt;&lt;/div&gt; &lt;/div&gt;
-&lt;div class=&quot;SegmentContainer&quot;  style=&quot;--line-y-from:31.2%;--line-y-to:55.9%;--line-slope:to top left&quot;&gt; &lt;li class=&quot;LineSegment&quot;&gt;9 : 4&lt;/li&gt; &lt;div class=&quot;LineBlock&quot;&gt;&lt;/div&gt; &lt;/div&gt;
-&lt;div class=&quot;SegmentContainer&quot;  style=&quot;--line-y-from:55.9%;--line-y-to:95.5%;--line-slope:to top left&quot;&gt; &lt;li class=&quot;LineSegment&quot;&gt;10.5 : 8&lt;/li&gt; &lt;div class=&quot;LineBlock&quot;&gt;&lt;/div&gt; &lt;/div&gt;
+&lt;div class=&quot;SegmentContainer&quot;  style=&quot;--line-y-from:4.5%;--line-y-to:49.0%;--line-slope:to top right&quot;&gt; 
+&lt;li class=&quot;LineSegment&quot;&gt;3 : -1.2&lt;/li&gt; 
+&lt;div class=&quot;LineBlock&quot;&gt;&lt;/div&gt; &lt;/div&gt;
+&lt;div class=&quot;SegmentContainer&quot;  style=&quot;--line-y-from:4.5%;--line-y-to:16.3%;--line-slope:to top left&quot;&gt; 
+&lt;li class=&quot;LineSegment&quot;&gt;4.5 : 0&lt;/li&gt; 
+&lt;div class=&quot;LineBlock&quot;&gt;&lt;/div&gt; &lt;/div&gt;
+&lt;div class=&quot;SegmentContainer&quot;  style=&quot;--line-y-from:16.3%;--line-y-to:16.3%;--line-slope:to top left&quot;&gt; 
+&lt;li class=&quot;LineSegment&quot; style=&quot;border-top-style:solid&quot;&gt;6 : 0&lt;/li&gt; 
+&lt;div class=&quot;LineBlock&quot;&gt;&lt;/div&gt; &lt;/div&gt;
+&lt;div class=&quot;SegmentContainer&quot;  style=&quot;--line-y-from:16.3%;--line-y-to:31.2%;--line-slope:to top left&quot;&gt; 
+&lt;li class=&quot;LineSegment&quot;&gt;7.5 : 1.5&lt;/li&gt; 
+&lt;div class=&quot;LineBlock&quot;&gt;&lt;/div&gt; &lt;/div&gt;
+&lt;div class=&quot;SegmentContainer&quot;  style=&quot;--line-y-from:31.2%;--line-y-to:55.9%;--line-slope:to top left&quot;&gt; 
+&lt;li class=&quot;LineSegment&quot;&gt;9 : 4&lt;/li&gt; 
+&lt;div class=&quot;LineBlock&quot;&gt;&lt;/div&gt; &lt;/div&gt;
+&lt;div class=&quot;SegmentContainer&quot;  style=&quot;--line-y-from:55.9%;--line-y-to:95.5%;--line-slope:to top left&quot;&gt; 
+&lt;li class=&quot;LineSegment&quot;&gt;10.5 : 8&lt;/li&gt; 
+&lt;div class=&quot;LineBlock&quot;&gt;&lt;/div&gt; &lt;/div&gt;
 &lt;/div&gt;&lt;div class=&quot;BarLi&quot;&gt; &lt;span class=&quot;XTicks&quot;&gt;
 &lt;span class=&quot;TickLabel&quot; style=&quot;--tick-label:&#39;1.1&#39;&quot;&gt;&lt;/span&gt;
 &lt;span class=&quot;TickLabel&quot; style=&quot;--tick-label:&#39;3.0&#39;&quot;&gt;&lt;/span&gt;
@@ -371,12 +385,24 @@
 &lt;span class=&quot;TickLabel&quot; style=&quot;--tick-label:&#39;0.0&#39;&quot;&gt;&lt;/span&gt;
 &lt;/div&gt;
 &lt;div class=&quot;FlexColumn&quot;&gt; &lt;div class=&quot;LineOuterContainer&quot;&gt;
-&lt;div class=&quot;WaterfallContainer&quot;&gt; &lt;li class=&quot;BarBlock&quot; style=&quot;--stack-height:95.2%;width:100%&quot;&gt;Animals: 95&lt;/li&gt; &lt;div class=&quot;LineBlock&quot; style=&quot;--line-y-from:0.0%&quot;&gt;&lt;/div&gt; &lt;/div&gt;
-&lt;div class=&quot;WaterfallContainer&quot;&gt; &lt;li class=&quot;BarBlock&quot; style=&quot;--stack-height:20.1%;width:100%&quot;&gt;Dogs : 20&lt;/li&gt; &lt;div class=&quot;LineBlock&quot; style=&quot;--line-y-from:75.2%&quot;&gt;&lt;/div&gt; &lt;/div&gt;
-&lt;div class=&quot;WaterfallContainer&quot;&gt; &lt;li class=&quot;BarBlock&quot; style=&quot;--stack-height:10.0%;width:100%&quot;&gt;Cats : 10&lt;/li&gt; &lt;div class=&quot;LineBlock&quot; style=&quot;--line-y-from:65.2%&quot;&gt;&lt;/div&gt; &lt;/div&gt;
-&lt;div class=&quot;WaterfallContainer&quot;&gt; &lt;li class=&quot;BarBlock&quot; style=&quot;--stack-height:30.1%;width:100%&quot;&gt;Lions : 30&lt;/li&gt; &lt;div class=&quot;LineBlock&quot; style=&quot;--line-y-from:35.1%&quot;&gt;&lt;/div&gt; &lt;/div&gt;
-&lt;div class=&quot;WaterfallContainer&quot;&gt; &lt;li class=&quot;BarBlock&quot; style=&quot;--stack-height:15.0%;width:100%&quot;&gt;Tigers : 15&lt;/li&gt; &lt;div class=&quot;LineBlock&quot; style=&quot;--line-y-from:20.1%&quot;&gt;&lt;/div&gt; &lt;/div&gt;
-&lt;div class=&quot;WaterfallContainer&quot;&gt; &lt;li class=&quot;BarBlock&quot; style=&quot;--stack-height:20.1%;width:100%&quot;&gt;Bears : 20&lt;/li&gt; &lt;div class=&quot;LineBlock&quot; style=&quot;--line-y-from:-0.0%&quot;&gt;&lt;/div&gt; &lt;/div&gt;
+&lt;div class=&quot;WaterfallContainer&quot;&gt; 
+&lt;li class=&quot;BarBlock&quot; style=&quot;--stack-height:95.2%;width:100%&quot;&gt;Animals: 95&lt;/li&gt; 
+&lt;div class=&quot;LineBlock&quot; style=&quot;--line-y-from:0.0%&quot;&gt;&lt;/div&gt; &lt;/div&gt;
+&lt;div class=&quot;WaterfallContainer&quot;&gt; 
+&lt;li class=&quot;BarBlock&quot; style=&quot;--stack-height:20.1%;width:100%&quot;&gt;Dogs : 20&lt;/li&gt; 
+&lt;div class=&quot;LineBlock&quot; style=&quot;--line-y-from:75.2%&quot;&gt;&lt;/div&gt; &lt;/div&gt;
+&lt;div class=&quot;WaterfallContainer&quot;&gt; 
+&lt;li class=&quot;BarBlock&quot; style=&quot;--stack-height:10.0%;width:100%&quot;&gt;Cats : 10&lt;/li&gt; 
+&lt;div class=&quot;LineBlock&quot; style=&quot;--line-y-from:65.2%&quot;&gt;&lt;/div&gt; &lt;/div&gt;
+&lt;div class=&quot;WaterfallContainer&quot;&gt; 
+&lt;li class=&quot;BarBlock&quot; style=&quot;--stack-height:30.1%;width:100%&quot;&gt;Lions : 30&lt;/li&gt; 
+&lt;div class=&quot;LineBlock&quot; style=&quot;--line-y-from:35.1%&quot;&gt;&lt;/div&gt; &lt;/div&gt;
+&lt;div class=&quot;WaterfallContainer&quot;&gt; 
+&lt;li class=&quot;BarBlock&quot; style=&quot;--stack-height:15.0%;width:100%&quot;&gt;Tigers : 15&lt;/li&gt; 
+&lt;div class=&quot;LineBlock&quot; style=&quot;--line-y-from:20.1%&quot;&gt;&lt;/div&gt; &lt;/div&gt;
+&lt;div class=&quot;WaterfallContainer&quot;&gt; 
+&lt;li class=&quot;BarBlock&quot; style=&quot;--stack-height:20.1%;width:100%&quot;&gt;Bears : 20&lt;/li&gt; 
+&lt;div class=&quot;LineBlock&quot; style=&quot;--line-y-from:-0.0%&quot;&gt;&lt;/div&gt; &lt;/div&gt;
 &lt;/div&gt;&lt;div class=&quot;BarLi&quot;&gt; &lt;span class=&quot;XTicks&quot;&gt;
 &lt;/span&gt;&lt;/div&gt;&lt;/div&gt;&lt;/div&gt;</code></pre>
 </body>
