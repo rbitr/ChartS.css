@@ -265,12 +265,24 @@ Note: this html was generated using the defaults of `chartss.lua`. This means th
 </div>
 <div class="FlexColumn"> <div class="LineOuterContainer">
 <li class="InvisibleListItem">1.5 : 3.3</li>
-<div class="SegmentContainer"  style="--line-y-from:4.5%;--line-y-to:49.0%;--line-slope:to top right"> <li class="LineSegment">3 : -1.2</li> <div class="LineBlock"></div> </div>
-<div class="SegmentContainer"  style="--line-y-from:4.5%;--line-y-to:16.3%;--line-slope:to top left"> <li class="LineSegment">4.5 : 0</li> <div class="LineBlock"></div> </div>
-<div class="SegmentContainer"  style="--line-y-from:16.3%;--line-y-to:16.3%;--line-slope:to top left"> <li class="LineSegment" style="border-top-style:solid">6 : 0</li> <div class="LineBlock"></div> </div>
-<div class="SegmentContainer"  style="--line-y-from:16.3%;--line-y-to:31.2%;--line-slope:to top left"> <li class="LineSegment">7.5 : 1.5</li> <div class="LineBlock"></div> </div>
-<div class="SegmentContainer"  style="--line-y-from:31.2%;--line-y-to:55.9%;--line-slope:to top left"> <li class="LineSegment">9 : 4</li> <div class="LineBlock"></div> </div>
-<div class="SegmentContainer"  style="--line-y-from:55.9%;--line-y-to:95.5%;--line-slope:to top left"> <li class="LineSegment">10.5 : 8</li> <div class="LineBlock"></div> </div>
+<div class="SegmentContainer"  style="--line-y-from:4.5%;--line-y-to:49.0%;--line-slope:to top right"> 
+<li class="LineSegment">3 : -1.2</li> 
+<div class="LineBlock"></div> </div>
+<div class="SegmentContainer"  style="--line-y-from:4.5%;--line-y-to:16.3%;--line-slope:to top left"> 
+<li class="LineSegment">4.5 : 0</li> 
+<div class="LineBlock"></div> </div>
+<div class="SegmentContainer"  style="--line-y-from:16.3%;--line-y-to:16.3%;--line-slope:to top left"> 
+<li class="LineSegment" style="border-top-style:solid">6 : 0</li> 
+<div class="LineBlock"></div> </div>
+<div class="SegmentContainer"  style="--line-y-from:16.3%;--line-y-to:31.2%;--line-slope:to top left"> 
+<li class="LineSegment">7.5 : 1.5</li> 
+<div class="LineBlock"></div> </div>
+<div class="SegmentContainer"  style="--line-y-from:31.2%;--line-y-to:55.9%;--line-slope:to top left"> 
+<li class="LineSegment">9 : 4</li> 
+<div class="LineBlock"></div> </div>
+<div class="SegmentContainer"  style="--line-y-from:55.9%;--line-y-to:95.5%;--line-slope:to top left"> 
+<li class="LineSegment">10.5 : 8</li> 
+<div class="LineBlock"></div> </div>
 </div><div class="BarLi"> <span class="XTicks">
 <span class="TickLabel" style="--tick-label:'1.1'"></span>
 <span class="TickLabel" style="--tick-label:'3.0'"></span>
@@ -319,12 +331,24 @@ Note: this html was generated using the defaults of `chartss.lua`. This means th
 <span class="TickLabel" style="--tick-label:'0.0'"></span>
 </div>
 <div class="FlexColumn"> <div class="LineOuterContainer">
-<div class="WaterfallContainer"> <li class="BarBlock" style="--stack-height:95.2%;width:100%">Animals: 95</li> <div class="LineBlock" style="--line-y-from:0.0%"></div> </div>
-<div class="WaterfallContainer"> <li class="BarBlock" style="--stack-height:20.1%;width:100%">Dogs : 20</li> <div class="LineBlock" style="--line-y-from:75.2%"></div> </div>
-<div class="WaterfallContainer"> <li class="BarBlock" style="--stack-height:10.0%;width:100%">Cats : 10</li> <div class="LineBlock" style="--line-y-from:65.2%"></div> </div>
-<div class="WaterfallContainer"> <li class="BarBlock" style="--stack-height:30.1%;width:100%">Lions : 30</li> <div class="LineBlock" style="--line-y-from:35.1%"></div> </div>
-<div class="WaterfallContainer"> <li class="BarBlock" style="--stack-height:15.0%;width:100%">Tigers : 15</li> <div class="LineBlock" style="--line-y-from:20.1%"></div> </div>
-<div class="WaterfallContainer"> <li class="BarBlock" style="--stack-height:20.1%;width:100%">Bears : 20</li> <div class="LineBlock" style="--line-y-from:-0.0%"></div> </div>
+<div class="WaterfallContainer"> 
+<li class="BarBlock" style="--stack-height:95.2%;width:100%">Animals: 95</li> 
+<div class="LineBlock" style="--line-y-from:0.0%"></div> </div>
+<div class="WaterfallContainer"> 
+<li class="BarBlock" style="--stack-height:20.1%;width:100%">Dogs : 20</li> 
+<div class="LineBlock" style="--line-y-from:75.2%"></div> </div>
+<div class="WaterfallContainer"> 
+<li class="BarBlock" style="--stack-height:10.0%;width:100%">Cats : 10</li> 
+<div class="LineBlock" style="--line-y-from:65.2%"></div> </div>
+<div class="WaterfallContainer"> 
+<li class="BarBlock" style="--stack-height:30.1%;width:100%">Lions : 30</li> 
+<div class="LineBlock" style="--line-y-from:35.1%"></div> </div>
+<div class="WaterfallContainer"> 
+<li class="BarBlock" style="--stack-height:15.0%;width:100%">Tigers : 15</li> 
+<div class="LineBlock" style="--line-y-from:20.1%"></div> </div>
+<div class="WaterfallContainer"> 
+<li class="BarBlock" style="--stack-height:20.1%;width:100%">Bears : 20</li> 
+<div class="LineBlock" style="--line-y-from:-0.0%"></div> </div>
 </div><div class="BarLi"> <span class="XTicks">
 </span></div></div></div>
 ```
