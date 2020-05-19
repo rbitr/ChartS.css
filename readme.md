@@ -253,7 +253,7 @@ Note: this html was generated using the defaults of `chartss.lua`. This means th
 
 (For line plots, the lower y-value of each line segment always has to come first, as `--line-y-from`, with the direction specified by `--line-slope`. Also note that a zero slope line needs its `border-top-style:solid` property set as shown below as a hack to show the line.
 
-```
+```html
 <div class="PlotOuterContainer">
 <div class="YTicks">
 <span class="TickLabel" style="--tick-label:'8.4'"></span>
